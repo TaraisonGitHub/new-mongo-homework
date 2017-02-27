@@ -1,1 +1,1 @@
-# new-mongo-homework
+# mongodb-homework
