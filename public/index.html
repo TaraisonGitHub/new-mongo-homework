@@ -12,14 +12,21 @@
 	<div id="hero-img"><h1>Search the New York Times!</h1>
 
 		<section id="banner-search" class="banner">
-			<form action="/submit" method="post">
-				<label for="search-box"></label>
-  				<input type="text" name="search-field" id="search" placeholder="Enter keywords to search articles here..."><br>
-			</form>
-			<button id="search-here" class="search-btn" type="submit">Search</button>
+			<button id="search-here" class="search-btn" type="submit" onclick="myFunction()">Scrape Stories</button>
+			<button id="search-note" class="search-btn" type="submit">New Note</button>
+			<button id="search-no" class="search-btn" type="submit">Delete Note</button>
 		</section>
 
-
+		<aside id="searchResults">
+		</aside>
+		
 	</div>
 </body>
+<script>
+function myFunction () {
+document.getElementById("searchResults").innerHTML = "test";
+}
+
+
+</script>
 </html>

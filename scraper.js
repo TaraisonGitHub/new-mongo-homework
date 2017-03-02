@@ -13,7 +13,16 @@ var request = require('request');
 request('http://www.nytimes.com/pages/opinion/index.html', function(err, resp, body) {
 
 	var $ = cheerio.load(body);
+	var result = [];
 
 	//looking for all div tags with class "story"
-	console.log($('div.story'));
+	$('div.story').each(function(idx, element) {
+		var story = $(this).text();
+		var link = $(this).children().next().children().attr('href');
+
+		result.push({
+			story: story,
+			link: link
+		})
+	});
 })

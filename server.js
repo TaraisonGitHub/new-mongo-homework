@@ -6,12 +6,14 @@ var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 
+var scraper = require('./scraper.js')
+
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
 
 // Require our userModel model
-var Example = require("./userModel.js");
+var Example = require("./models/userModel.js");
 
 // Initialize Express
 var app = express();
@@ -29,7 +31,7 @@ app.use(express.static("public"));
 
 // ==== Connect Mongoose to database =========================================
 
-mongoose.connect("mongodb://localhost/week18day3mongoose");
+mongoose.connect("mongodb://localhost/nytnotes");
 var db = mongoose.connection;
 
 // Show any mongoose errors
@@ -95,3 +97,16 @@ app.post("/submit", function(req, res) {
 app.listen(3000, function() {
   console.log("App running on port 3000!");
 });
+
+app.get("/", function(req, res) {
+    res.send('index.html');
+    //res.send is equivilant to the normal res.end
+
+    //the function used in this is called a route handler (function(req,res))
+});
+/*
+app.post("/scraped", function(req, res) {
+  res.send("back to the home page");
+};
+*/
+
